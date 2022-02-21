@@ -1,1 +1,1 @@
-# memory-game
+# rsschool-memory-game
