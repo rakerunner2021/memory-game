@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory game</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js" async></script>
+</head>
+<body>
+    <h1 class="page-title">Memory game</h1>
+    <div class="overlay-text visible">
+        Click to start
+    </div>
+    <div class="overlay-text game-over-text">
+        Game over
+        <span class="overlay-text-small">Click to Restart</span>
+    </div>
+    <div class="overlay-text victory-text">
+        Victory, <span>you have completed</span> <span>the game in</span> </span><span class="moves-quantity"></span> <span>moves</span>
+        <span class="overlay-text-small">Click to Restart</span>
+    </div>
+    <div class="container">
+        <div class="information-container">
+            <div class="game-info-time">
+                Time <span class="timer">120</span>
+            </div>
+            <div class="game-info-moves">
+                Moves <span class="moves-counter">0</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/hulk.svg" alt="hulk">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/captain-america.svg" alt="captain-america">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/hulk.svg" alt="hulk">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/captain-america.svg" alt="captain-america">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/iron-man.svg" alt="iron-man">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/thor.svg" alt="thor">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/iron-man.svg" alt="iron-man">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/thor.svg" alt="thor">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/spider-man.svg" alt="spider-man">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/marvel.svg" alt="marvel">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/spider-man.svg" alt="spider-man">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/marvel.svg" alt="marvel">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/axe.svg" alt="axe">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/glove.svg" alt="glove">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/axe.svg" alt="axe">
+            </div>
+        </div>
+        <div class="card">
+            <div class="back-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star.png" alt="infinity-glove">
+                <img class="avengers" src="./assets/images/avengers.svg" alt="avengers">
+            </div>
+            <div class="front-side card-face">
+                <img class="infinity-glove infinity-glove-top-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-top-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-left" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="infinity-glove infinity-glove-bottom-right" src="./assets/images/star-black.png" alt="infinity-glove">
+                <img class="card-value" src="./assets/images/glove.svg" alt="glove">
+            </div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="footer-gh">
+            <ul class="footer-gh-list">
+                <li class="footer-gh-item">©</li>
+                <li class="footer-gh-item">2022</li>
+                <li class="footer-gh-item"><a class="footer-gh-link" href="https://github.com/rakerunner2021">github</a></li>
+            </ul>
+        </div>
+        <div class="footer-year">
+            Memory Game
+        </div>
+        <div class="footer-rs">
+            <p class="footer-rs-disc">
+                <a class="footer-rs-link" href="https://rs.school/js/">Rolling Scopes School</a>
+            </p>
+        </div>
+</body>
+</html>
