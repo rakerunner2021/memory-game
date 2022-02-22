@@ -1,0 +1,409 @@
+@font-face {
+    font-family: 'Avengeance Heroic Avenger Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Normal'), url('./assets/fonts/AVENGEANCE\ HEROIC\ AVENGER.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Avengeance Heroic Avenger Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Normal'), url('./assets/fonts/AVENGEANCE\ HEROIC\ AVENGER.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Avengeance Heroic Avenger Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Italic'), url('./assets/fonts/AVENGEANCE\ HEROIC\ AVENGER\ AT.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Avengeance Heroic Avenger Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Italic'), url('./assets/fonts/AVENGEANCE\ HEROIC\ AVENGER\ AT.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Avengeance Heroic Avenger Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Bold'), url('./assets/fonts/AVENGEANCE\ HEROIC\ AVENGER\ BD.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Avengeance Heroic Avenger Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Bold Italic'), url('./assets/fonts/AVENGEANCE\ HEROIC\ AVENGER\ BI.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Avengeance Heroic Avenger Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Bold'), url('./assets/fonts/AVENGEANCE\ HEROIC\ AVENGER\ BD.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Avengeance Heroic Avenger Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avengeance Heroic Avenger Bold Italic'), url('AVENGEANCE HEROIC AVENGER BI.woff') format('woff');
+    }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+    cursor: url("./assets/cursors/gauntlet.cur"), auto;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(#00008b,  #db7093);
+    font-family: 'Avengeance Heroic Avenger Italic';
+}
+
+.page-title {
+    color:  #00bfff;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
+}
+
+.overlay-text {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #00bfff;
+}
+
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 10em;
+    }
+}
+
+.overlay-text.victory-text.visible {
+    animation: overlay-victory 500ms forwards;
+}
+
+@keyframes overlay-victory {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 5em;
+    }
+}
+
+.overlay-text-small {
+    font-size: 0.3em;
+    color: green;
+}
+
+.information-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info-time,
+.game-info-moves {
+    color: #40cfff;
+    font-size: 4em;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.card {
+    position: relative;
+    height: 175px;
+    width: 125px;
+}
+
+.card.visible .back-side {
+    transform: rotateY(-180deg);
+}
+
+.card.visible .front-side {
+    transform: rotateY(0);
+}
+
+.card.matched .card-value {
+    animation: dance 1s linear infinite 500ms;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-30deg);
+    }
+    75% {
+        transform: rotate(30deg);
+    }
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    transition: transform 500ms ease-in-out;
+}
+
+.back-side {
+    background-color: grey;
+    border-color: #00bfff;
+}
+
+.front-side {
+    background-color: #ff9900;
+    border-color: #000;
+    transform: rotateY(180deg);
+}
+
+.card-value {
+    transition: transform 100ms ease-in-out;
+    transform: scale(0.65);
+}
+
+.front-side:hover .card-value {
+    transform: scale(0.8);
+}
+
+.infinity-glove {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
+}
+
+.back-side:hover .infinity-glove {
+    width: 32px;
+    height: 32px;
+}
+
+.front-side:hover .infinity-glove {
+    width: 32px;
+    height: 32px;
+}
+
+.infinity-glove-top-left {
+    transform: rotate(320deg) translateY(6px);
+    top: 0;
+    left: 0;
+}
+
+.infinity-glove-top-right {
+    transform: rotate(-320deg) translateY(6px);
+    top: 0;
+    right: 0;
+}
+
+.infinity-glove-bottom-left {
+    transform: rotate(220deg) translateY(6px);
+    bottom: 0;
+    left: 0;
+}
+
+.infinity-glove-bottom-right {
+    transform: rotate(-220deg) translateY(6px);
+    bottom: 0;
+    right: 0;
+}
+
+.avengers {
+    transform: scale(0.65) translateY(-2px);
+    transition: transform 100ms ease-in-out;
+}
+
+.back-side:hover .avengers {
+    transform: scale(0.9);
+}
+
+@media (max-width: 900px) {
+    @keyframes overlay-grow {
+        from {
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 0;
+        }
+        to {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 7em;
+        }
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: repeat(2, auto);
+    }
+    .information-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .overlay-text:nth-child(3) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @keyframes overlay-grow {
+        from {
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 0;
+        }
+        to {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 6em;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    @keyframes overlay-grow {
+        from {
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 0;
+        }
+        to {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 5em;
+        }
+    }
+}
+@media (max-width: 430px) {
+    @keyframes overlay-grow {
+        from {
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 0;
+        }
+        to {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 4em;
+        }
+    }
+}
+@media (max-width: 360px) {
+    @keyframes overlay-grow {
+        from {
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 0;
+        }
+        to {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 3em;
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #000;
+}
+.footer-gh {
+    width: 282px;
+}
+.footer-gh-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+.footer-gh-item {
+    margin-right: 20px;
+    list-style: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 50px;
+    color: #00bfff;
+    letter-spacing: 3px;
+}
+.footer-gh-item:last-child {
+    margin-right: 13px;
+}
+.footer-gh-link,
+.footer-rs-link {
+    text-decoration: none;
+    color: #00bfff;
+    letter-spacing: 3px;
+}
+.footer-gh-link:hover,
+.footer-gh-link:focus,
+.footer-rs-link:hover,
+.footer-rs-link:focus {
+    color: #00008b;
+    transition: .3s;
+}
+
+.footer-rs-link {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 50px;
+    color: #00bfff;
+    letter-spacing: 3px;
+}
+
+.footer-rs-disc {
+    margin: 0;
+}
+.footer-year {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 50px;
+    color: #00bfff;
+    letter-spacing: 3px;
+}
